@@ -18,11 +18,7 @@
     transform: scale(1.5)
 }
 
-.btn {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%
-}
+
 
 .name {
     font-size: 22px;
@@ -46,15 +42,15 @@
 .follow {
     font-size: 12px;
     font-weight: 500;
-    color: #444444
+    color: #0d6efd
 }
 
 .btn1 {
     height: 40px;
     width: 150px;
     border: none;
-    background-color: #000;
-    color: #aeaeae;
+    background-color: #0d6efd;;
+    color: white;
     font-size: 15px
 }
 
@@ -79,5 +75,17 @@ hr .new1 {
 }
 
 .date {
-    background-color: #ccc
+    background-color: #ccc;
+   
+}
+.profile-pic{
+    border-radius: 50%;
+    border: none;
+}
+.pic-frame{
+    height: 144px;
+    width: 144px;
+    border-radius: 50%;
+    background-color: #3182fb;
+    border: none;
 }

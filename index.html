@@ -33,14 +33,123 @@
                 <a href="profile.html" class="nav-link">My Profile</a>
               </li>
               <li class="nav-item"><a href="#" class="nav-link">Groups</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Work</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Inbox</a></li>
+              <li class="nav-item"><a href="#" class="nav-link">Log out</a></li>
             </ul>
           </div>
         </div>
       </nav>
       <!-- END nav -->
     </div>
+    <div class="container">
+      <h2 class="text-center p-3">Latest posts</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img
+            src="/img/profiler pic.jpg"
+              class="card-img-top"
+              alt="picture from the Maldives"
+            />
+            <div class="card-body">
+              <h5 class="card-title text-center">SoMe post 1</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim
+                sit amet venenatis urna cursus eget nunc scelerisque viverra
+              </p>
+            </div>
+            <div class="card-footer">
+              <img
+              src="/img/profiler pic.jpg"
+                alt="Bootstrap"
+                width="40"
+                height="40"
+                class="border-grey rounded-circle border"
+              />
+              <small class="text-muted">Bob,Nordman </small>
+              <small class="text-muted">06.05.1998 </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="/img/profiler pic.jpg"
+              class="card-img-top"
+              alt="Picture of a man singing"
+            />
+            <div class="card-body">
+              <h5 class="card-title text-center">SoMe post 2</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim
+                sit amet venenatis urna cursus eget nunc scelerisque viverra
+              </p>
+            </div>
+            <div class="card-footer">
+              <img
+              src="/img/profiler pic.jpg"
+                alt="Bootstrap"
+                width="40"
+                height="40"
+                class="border-grey rounded-circle border"
+              />
+              <small class="text-muted">Bob,Nordman </small>
+              <small class="text-muted">06.05.1998 </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <img
+            src="/img/profiler pic.jpg"
+              class="card-img-top"
+              alt="Birthday balloons"
+            />
+            <div class="card-body">
+              <h5 class="card-title text-center">SoMe post 3</h5>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim
+              sit amet venenatis urna cursus eget nunc scelerisque viverra
+              </p>
+            </div>
+            <div class="card-footer">
+              <img
+              src="/img/profiler pic.jpg"
+                alt="Bootstrap"
+                width="40"
+                height="40"
+                class="border-grey rounded-circle border"
+              />
+              <small class="text-muted">Bob,Nordman </small>
+              <small class="text-muted">06.05.1998 </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container p-3 post-form">
+      <h1 class="text-center py-3">Create new post</h1>
+      <form>
+          <div class="mb-2">
+            <label for="validationTextarea" class="form-label"></label>
+            <input class="form-control" id="validationTextarea" placeholder="Title" required ></input>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="mb-2">
+            <label for="validationTextarea" class="form-label"></label>
+            <textarea class="form-control" id="validationTextarea" placeholder="Write your post here..." required ></textarea>
+            <div class="invalid-feedback"></div>
+          </div>
+        
+            <div class="mb-2">
+              <button class="btn btn-primary" type="submit" disabled>Post</button>
+            </div>
+        </form>
+  </div>
   </body>
 </html>
