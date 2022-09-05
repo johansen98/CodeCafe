@@ -1,0 +1,10 @@
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    gap: 3vw;
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 0;
+    align-items: center;
+}
