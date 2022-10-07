@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/sass/main.css" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <script src="/JS/login.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -53,7 +54,7 @@
                     consectetur adipisicing.
                   </p>
                 </div>
-                <form action="/profile.html">
+                <form>
                   <div class="form-group first">
                     <label for="username">Username</label>
                     <input
@@ -88,12 +89,13 @@
                     >
                   </div>
                   <div class="mb-6 mb-10">
-                    <input
-                      herf="/profile.html"
+                    <button
+                      onclick="logIn(event)"
                       type="submit"
-                      value="Log In"
                       class="btn btn-block btn-primary"
-                    />
+                    >
+                      Log In
+                    </button>
                     <a href="#" class="btn btn-block btn-primary">Sign up</a>
                   </div>
                 </form>
