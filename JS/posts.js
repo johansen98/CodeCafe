@@ -16,9 +16,32 @@ function getPosts(){
 }
 
 function onResponse(data){
-    const postConatiner = document.getElementById('postContainer');
 
-    const postCardContainer = document.createElement('div');
+    const posts = data;
+    posts.forEach(post => {
+      
+          const postConatiner = document.getElementById('postContainer');
+      
+          const postCardContainer = document.createElement('div');
+          const postCard = document.createElement('div');
+          const postImg = document.createElement('img');
+          const postBody = document.createElement('div');
+          const postTittle = document.createElement('h5');
+          const postContent = document.createElement('p');
+          const postFooter = document.createElement('div');
+          const authorImg = document.createElement('img');
+          const authorName = document.createElement('small')
+          const authorDOB = document.createElement('small')
+
+          postImg.src = post.media[0]
+
+          console.log(postImg)
+
+      
+    });
+
+    
+
 
 
 
