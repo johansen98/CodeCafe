@@ -1,3 +1,7 @@
+const token = localStorage.getItem("token");
+if(token){
+    document.location = "/index.html";
+}
 
 function signUp(event){
     event.preventDefault()
@@ -5,6 +9,7 @@ function signUp(event){
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
     const rePassword = document.getElementById("re-password").value
+    
 
 
     if(!validateFields(name,email,password,rePassword)){
@@ -30,19 +35,44 @@ function signUp(event){
     .catch((error) => console.log("error", error));
 
 }
+function validateEmail(email) {
+  const regEx = /^[\w\-.]+@(stud.)?noroff.no$/;
+  const patternMatches = regEx.test(email);
+  return patternMatches;
+  }
 
 
 function validateFields(name,email,password,rePassword){
 //vaider email til stud.noroff.no || .noroff.no
-    if(!name || !email || !password || !rePassword){
-        return false;
+  let message = [];
+  const msg = document.getElementById("msg");
 
-    }
-    else if(password !== rePassword){
-        return false;
-    }
-    return true;
-
+  if(!name){
+    message.push('name must have a value');
+  }
+  if(!email){
+    message.push('email must have a value');
+  }
+  if(!password){
+    message.push('password must have a value');
+  }
+  if(!rePassword){
+    message.push('rePassword must have a value');
+  }
+  if(!validateEmail(email)){
+    message.push('Email must end on @stud.noroff.no or @noroff')
+  }
+  if(password.length < 8){
+    message.push('Password must have more than 8 charathers')
+  }
+  if(password !== rePassword){
+    message.push('rePassword need to match password')
+  }
+  if(message.length > 0){
+    msg.innerHTML = message.join(' </br> ')
+    msg.style.color = 'red';
+  }
+ 
 }
 
 function logIn(email, password) {

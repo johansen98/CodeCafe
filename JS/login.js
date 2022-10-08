@@ -1,3 +1,8 @@
+const token = localStorage.getItem("token");
+if(token){
+    document.location = "/index.html";
+}
+
 function logIn(event) {
   event.preventDefault();
 
