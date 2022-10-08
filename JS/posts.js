@@ -18,6 +18,8 @@ function getPosts(){
 function onResponse(data){
     const postConatiner = document.getElementById('postContainer');
 
-    const postCard = create
+    const postCardContainer = document.createElement('div');
+
+
 
 }
