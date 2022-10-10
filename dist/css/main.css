@@ -10813,6 +10813,7 @@ textarea.form-control-lg {
   border-radius: 50%;
   aspect-ratio: 1;
   object-fit: cover;
+  margin-right: 1vw;
 }
 
 /*# sourceMappingURL=main.css.map */

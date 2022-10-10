@@ -33,7 +33,7 @@ function onResponse(data){
           const postCard = document.createElement('div');
           const postImg = document.createElement('img');
           const postBody = document.createElement('div');
-          const postTittle = document.createElement('h5');
+          const postTittle = document.createElement('h3');
           const postContent = document.createElement('p');
           const postFooter = document.createElement('div');
           const authorImg = document.createElement('img');
@@ -41,27 +41,34 @@ function onResponse(data){
           const postCreatedDate = document.createElement('small')
 
           postCardContainer.classList.add('col');
-          postCardContainer.classList.add('mb-2');
+          postCardContainer.classList.add('mb-5');
           postCard.classList.add('h-100')
           postCard.classList.add('card')
           
           postImg.src = post.media
           postImg.classList.add('card-img-top')
-          postImg.classList.add('w-50')
+          
 
           postBody.classList.add('card-body')
 
-          postTittle.innerHTML = post.tittle 
+          postTittle.innerHTML = post.title 
           postTittle.classList.add('card-title')
           postTittle.classList.add('text-center')
 
           postContent.innerHTML = post.body
           postContent.classList.add('card-text')
+          postContent.classList.add('text-center')
 
           postFooter.classList.add('card-footer')
 
-          authorImg.src = post.author.avatar
-          authorImg.classList.add('footer-image')
+
+          if(!post.author.avatar){
+            authorImg.src = '/src/sass/img/missingImg.webp'
+            authorImg.classList.add('footer-image')
+          }else if (post.author.avatar == true){
+            authorImg.src = post.author.avatar
+            authorImg.classList.add('footer-image')
+          }
 
           authorName.innerHTML = post.author.name
           authorName.classList.add('text-muted')
