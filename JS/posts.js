@@ -7,6 +7,19 @@ window.onscroll = function(e) {
   }
 };
 
+function missingImg(){
+  fetch('https://nf-api.onrender.com/api/v1/social/posts?_author=true&limit=20&offset=',{method: 'HEAD'})
+  .then(data => {
+    if(data.author.avatar){
+      authorImg.src = post.author.avatar
+      authorImg.classList.add('footer-image')
+    }else{
+      authorImg.src = '/src/sass/img/missingImg.webp'
+      authorImg.classList.add('footer-image')
+    }
+  })
+}
+
 function getPosts(page){
     const headers = new Headers();
     const token = localStorage.getItem("token");
@@ -62,10 +75,10 @@ function onResponse(data){
           postFooter.classList.add('card-footer')
 
 
-          if(!post.author.avatar){
+          if(!post.author.avatar ||  missingImg(post.author.avatar)){
             authorImg.src = '/src/sass/img/missingImg.webp'
             authorImg.classList.add('footer-image')
-          }else if (post.author.avatar == true){
+          }else{
             authorImg.src = post.author.avatar
             authorImg.classList.add('footer-image')
           }
@@ -100,3 +113,4 @@ function onResponse(data){
 
 
 }
+
