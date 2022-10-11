@@ -51,6 +51,10 @@ function onResponse(data){
           const authorName = document.createElement('small')
           const postCreatedDate = document.createElement('small')
 
+          postCardContainer.addEventListener('click', () => {
+          window.location.href = '/spesific.html?postId=' + post.id
+          })
+
           postCardContainer.classList.add('col');
           postCardContainer.classList.add('mb-5');
           postCard.classList.add('h-100')
