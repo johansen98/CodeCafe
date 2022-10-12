@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="dist/css/main.css" />
+    <script src="/JS/profile.js"></script>
     <script defer src="/JS/posts.js"></script>
     <script src="/JS/core.js" ></script>
 
@@ -31,15 +32,19 @@
           </button>
           <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto mr-md-3">
-              <li class="nav-item">
-                <input
-                  type="search"
-                  class="form-control rounded"
-                  placeholder="Search"
-                  aria-label="Search"
-                  aria-describedby="search-addon"
-                />
-              </li>
+              <form role="search" action="" id="search-form">
+
+                <li class="nav-item">
+                  <input
+                    type="search"
+                    class="form-control rounded"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                    id="search"
+                  />
+                </li>
+              </form>
               <li class="nav-item active">
                 <a href="profile.html" class="nav-link">My Profile</a>
               </li>
