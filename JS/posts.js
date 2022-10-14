@@ -1,24 +1,29 @@
-let page = 0;
-getPosts(page);
-
-window.onscroll = function(e) {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      getPosts(page++)
+let postData = [];
+const searchForm = document.getElementById('search');
+searchForm.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+      search()
   }
-};
+});
 
-//function missingImg(){
-//  fetch('https://nf-api.onrender.com/api/v1/social/posts?_author=true&limit=20&offset=',{method: 'HEAD'})
-//  .then(data => {
-//    if(data.ok){
-//      return false
-//    }else{
-//      return true
-//    }
-//  })
-//}
+getPosts();
+function search(){
+    const searchValue = searchForm.value;
+    let filterData = postData.filter(p => {
+      return p.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+             p.body.toLowerCase().includes(searchValue.toLowerCase()) ||
+             p.author.name.toLowerCase().includes(searchValue.toLowerCase())
+      
+    });
 
-function getPosts(page){
+    onResponse(filterData);
+
+
+ 
+}
+
+function getPosts(){
+  
     const headers = new Headers();
     const token = localStorage.getItem("token");
     headers.append("Content-Type", "application/json");
@@ -29,15 +34,20 @@ function getPosts(page){
       headers: headers
     };
 
-    fetch('https://nf-api.onrender.com/api/v1/social/posts?_author=true&limit=20&offset=' + page, request)
+    fetch('https://nf-api.onrender.com/api/v1/social/posts?_author=true&limit=200', request)
     .then((response) => response.json())
-    .then((data) => onResponse(data))
+    .then((data) => {
+      postData = data;
+    onResponse(data)
+    
+    })
 }
 
 function onResponse(data){
 
     const posts = data;
     const postConatiner = document.getElementById('postContainer');
+    postConatiner.innerHTML = "";
     posts.forEach(post => {
       
           const postCardContainer = document.createElement('div');
