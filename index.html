@@ -58,31 +58,39 @@
       </nav>
       <!-- END nav -->
     </div>
-    <div class="container">
-      <h2 class="text-center p-3">Latest posts</h2>
-      <div id="postContainer" class="col-7 mx-auto">
-      </div>
-    </div>
-    <div class="container p-3 post-form">
+    <div class="container w-20 p-3 post-form">
       <h1 class="text-center py-3">Create new post</h1>
-      <form>
+      <form id="form">
           <div class="mb-2">
             <label for="validationTextarea" class="form-label"></label>
-            <input class="form-control" id="validationTextarea" placeholder="Title" required ></input>
+            <input class="form-control" id="title" placeholder="Title" required ></input>
             <div class="invalid-feedback"></div>
           </div>
 
           <div class="mb-2">
             <label for="validationTextarea" class="form-label"></label>
-            <textarea class="form-control" id="validationTextarea" placeholder="Write your post here..." required ></textarea>
+            <input class="form-control" id="imgUrl" placeholder="Img url"  ></input>
+            <div class="invalid-feedback"></div>
+          </div>
+
+
+
+          <div class="mb-2">
+            <label for="validationTextarea" class="form-label"></label>
+            <textarea class="form-control" id="body" placeholder="Write your post here..." required ></textarea>
             <div class="invalid-feedback"></div>
           </div>
         
             <div class="mb-2">
-              <button class="btn btn-primary" type="submit" disabled>Post</button>
+              <button onclick="createPost()" class="btn btn-primary" type="submit" >Post</button>
             </div>
         </form>
   </div>
+    <div class="container">
+      <h2 class="text-center p-3">Latest posts</h2>
+      <div id="postContainer" class="col-7 mx-auto">
+      </div>
+    </div>
   </body>
 </html>
 

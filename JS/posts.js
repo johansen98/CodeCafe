@@ -22,7 +22,8 @@ function search(){
  
 }
 
-function getPosts(){
+
+function getPosts(e){
   
     const headers = new Headers();
     const token = localStorage.getItem("token");
@@ -34,7 +35,7 @@ function getPosts(){
       headers: headers
     };
 
-    fetch('https://nf-api.onrender.com/api/v1/social/posts?_author=true&limit=200', request)
+    fetch('https://nf-api.onrender.com/api/v1/social/posts?_author=true&limit=100', request)
     .then((response) => response.json())
     .then((data) => {
       postData = data;
@@ -111,18 +112,38 @@ function onResponse(data){
           postFooter.appendChild(authorName)
           postFooter.appendChild(postCreatedDate)
           
-          postConatiner.appendChild(postCardContainer)
-
-
-
-          
-      
+          postConatiner.appendChild(postCardContainer)     
     });
-
-    
-
+}
 
 
+/*this create posts*/
+var form = document.getElementById("form");
+function handleForm(event) { event.preventDefault(); } 
+form.addEventListener('submit', handleForm);
+
+function createPost(e){
+  const headers = new Headers();
+  const token = localStorage.getItem("token");
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", "Bearer " + token)
+  const createTittle = document.getElementById('title').value;
+  const createImg = document.getElementById('imgUrl').value;
+  const createBody = document.getElementById('body').value
+
+  const create = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({"title": createTittle, "body": createBody, "media": createImg})
+  }
+
+  fetch('https://nf-api.onrender.com/api/v1/social/posts', create)
+  .then(response => response.json())
+  .then(created => {
+   console.log(created)
+  })
 
 }
+
+
 
