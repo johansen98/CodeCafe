@@ -1,3 +1,6 @@
+const deleteBtn = document.getElementById("deleteBtn");
+
+
 getPost(
 
 )
@@ -19,6 +22,11 @@ function getPost(){
     .then (data => {
         const post = data;
         const postConatiner = document.getElementById('postContainer');
+        const postEmail = post.author.email;
+        const loginUserEmail = localStorage.getItem("email")
+        if(postEmail !== loginUserEmail){
+          deleteBtn.classList.add("invisible");
+        }
        
         console.log()
         
@@ -42,6 +50,7 @@ function getPost(){
         postCardContainer.classList.add('mb-5');
         postCard.classList.add('h-100')
         postCard.classList.add('card')
+        postContent.contentEditable = true;
         
         postImg.src = post.media
         postImg.classList.add('card-img-top')
@@ -96,3 +105,26 @@ function getPost(){
     })
 }
 
+function deletePost(){
+  const headers = new Headers();
+  const token = localStorage.getItem("token");
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", "Bearer " + token)
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const postID = urlParams.get("postId");
+  const deleteUrl = "https://nf-api.onrender.com/api/v1/social/posts/" + postID
+  
+  fetch(deleteUrl, {method: "DELETE",headers: headers})
+  .then(response => response.json())
+  .then(deleted => {
+    window.location.href="/index.html";
+  })
+
+  
+
+
+
+
+}

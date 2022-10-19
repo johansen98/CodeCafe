@@ -23,7 +23,7 @@ function search(){
 }
 
 
-function getPosts(e){
+function getPosts(){
   
     const headers = new Headers();
     const token = localStorage.getItem("token");
@@ -140,10 +140,15 @@ function createPost(e){
   fetch('https://nf-api.onrender.com/api/v1/social/posts', create)
   .then(response => response.json())
   .then(created => {
-   console.log(created)
+    document.getElementById('title').value = "";
+    document.getElementById('imgUrl').value = "";
+    document.getElementById('body').value = "";
+    getPosts()
   })
 
 }
+
+
 
 
 

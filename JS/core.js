@@ -9,6 +9,7 @@ if(!token){
 function logOut(event){
     event.preventDefault();
     localStorage.removeItem("token")
+    localStorage.removeItem("email")
     document.location = "/login.html";
 
 }

@@ -35,7 +35,9 @@ function onResult(result){
   }
   const token = result.accessToken;
   localStorage.setItem("token", token);
+  localStorage.setItem("email", result.email)
   document.location = "/index.html";
+
 }
 
 
