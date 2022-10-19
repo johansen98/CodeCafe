@@ -1,4 +1,5 @@
 const deleteBtn = document.getElementById("deleteBtn");
+const editBtn = document.getElementById("editBtn");
 
 
 getPost(
@@ -26,6 +27,7 @@ function getPost(){
         const loginUserEmail = localStorage.getItem("email")
         if(postEmail !== loginUserEmail){
           deleteBtn.classList.add("invisible");
+          editBtn.classList.add("invisible");
         }
        
         console.log()
@@ -50,7 +52,17 @@ function getPost(){
         postCardContainer.classList.add('mb-5');
         postCard.classList.add('h-100')
         postCard.classList.add('card')
-        postContent.contentEditable = true;
+
+        editBtn.addEventListener('click', () => {
+          
+          postContent.contentEditable = !postContent.isContentEditable;
+
+          if(postContent.contentEditable === 'false') {
+            /*postContent.post.body = postContent.innerHTML;*/
+            
+          }
+        });
+        
         
         postImg.src = post.media
         postImg.classList.add('card-img-top')
@@ -128,3 +140,4 @@ function deletePost(){
 
 
 }
+console.log(postContent);
