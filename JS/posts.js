@@ -98,8 +98,9 @@ function onResponse(data){
 
           authorName.innerHTML = post.author.name
           authorName.classList.add('text-muted')
+          let dateCreated = new Date(post.created);
 
-          postCreatedDate.innerHTML = post.created
+          postCreatedDate.innerHTML = `${dateCreated.getDate()}.${dateCreated.getMonth()}.${dateCreated.getFullYear()}`
           postCreatedDate.classList.add('text-muted')
 
           postCardContainer.appendChild(postCard)
@@ -145,6 +146,36 @@ function createPost(e){
     document.getElementById('body').value = "";
     getPosts()
   })
+
+}
+
+function filterPosts(){
+  const selectedFilter = document.getElementById('selectedFilter').value;
+  
+
+  const today = new Date();
+  const yesterday = new Date()
+  yesterday.setDate(today.getDate() -1 );
+
+
+  if(selectedFilter == 0){
+    getPosts()
+  }else if(selectedFilter == 1){
+    
+    let filterdData = postData.filter(post => {
+      const postDate = new Date(post.created)
+      return today.getFullYear() == postDate.getFullYear() && today.getMonth() == postDate.getMonth() && today.getDate() == postDate.getDate();
+    })
+    onResponse(filterdData);
+  }else if(selectedFilter == 2){
+    let filterMoreData = postData.filter(post => {
+      const postDate = new Date(post.created)
+      return yesterday.getFullYear() == postDate.getFullYear() && yesterday.getMonth() == postDate.getMonth() && yesterday.getDate() == postDate.getDate();
+    })
+    onResponse(filterMoreData);
+  }
+
+
 
 }
 

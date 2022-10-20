@@ -58,36 +58,43 @@
       </nav>
       <!-- END nav -->
     </div>
-    <div class="container mb-5 p-3 post-form">
+    <div class="container mb-5 p-3 w-50 mx-auto">
       <h1 class="text-center py-3">Create new post</h1>
       <form id="form">
-          <div class="mb-2">
-            <label for="validationTextarea" class="form-label"></label>
-            <input class="form-control" id="title" placeholder="Title" required ></input>
-            <div class="invalid-feedback"></div>
-          </div>
-
-          <div class="mb-2">
-            <label for="validationTextarea" class="form-label"></label>
-            <input class="form-control" id="imgUrl" placeholder="Img url"  ></input>
-            <div class="invalid-feedback"></div>
-          </div>
-
-
-
-          <div class="mb-2">
-            <label for="validationTextarea" class="form-label"></label>
-            <textarea class="form-control" id="body" placeholder="Write your post here..." required ></textarea>
-            <div class="invalid-feedback"></div>
-          </div>
+        <div class="mb-2">
+          <label for="validationTextarea" class="form-label"></label>
+          <input class="form-control" id="title" placeholder="Title" required ></input>
+          <div class="invalid-feedback"></div>
+        </div>
         
-            <div class="mb-2">
-              <button onclick="createPost()" class="btn btn-primary" type="submit" >Post</button>
-            </div>
-        </form>
-  </div>
+        <div class="mb-2">
+          <label for="validationTextarea" class="form-label"></label>
+          <input class="form-control" id="imgUrl" placeholder="Img url"  ></input>
+          <div class="invalid-feedback"></div>
+        </div>
+        
+        
+        
+        <div class="mb-2">
+          <label for="validationTextarea" class="form-label"></label>
+          <textarea class="form-control" id="body" placeholder="Write your post here..." required ></textarea>
+          <div class="invalid-feedback"></div>
+        </div>
+        
+        <div class="mb-2">
+          <button onclick="createPost()" class="btn btn-primary" type="submit" >Post</button>
+        </div>
+      </form>
+    </div>
+    <div class="w-25 mx-auto mb-3">
+      <select onchange="filterPosts()" class="form-select" id="selectedFilter" aria-label="Default select example">
+        <option selected value="0">All Posts</option>
+        <option value="1">Todays Posts</option>
+        <option value="2">Yesterdays Posts</option>
+      </select>
+    </div>
     <div class="container">
-      <h2 class="text-center p-3">Latest posts</h2>
+      
       <div id="postContainer" class="col-7 mx-auto">
       </div>
     </div>

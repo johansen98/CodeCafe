@@ -129,7 +129,9 @@ function getPost(){
         authorName.innerHTML = post.author.name
         authorName.classList.add('text-muted')
 
-        postCreatedDate.innerHTML = post.created
+        let dateCreated = new Date(post.created);
+
+        postCreatedDate.innerHTML = `${dateCreated.getDate()}.${dateCreated.getMonth()}.${dateCreated.getFullYear()}`
         postCreatedDate.classList.add('text-muted')
 
         postCardContainer.appendChild(postCard)
