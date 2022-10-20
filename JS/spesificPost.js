@@ -56,15 +56,46 @@ function getPost(){
         editBtn.addEventListener('click', () => {
           
           postContent.contentEditable = !postContent.isContentEditable;
+          postContent.focus();
+          editBtn.innerHTML = "Save";
 
           if(postContent.contentEditable === 'false') {
-            /*postContent.post.body = postContent.innerHTML;*/
+            editBtn.innerHTML = "Edit";
+            const postTitle = document.getElementById("postTitle").innerHTML;
+            const postImg = document.getElementById("postImg").src;
+            const postContent = document.getElementById("postContent").innerHTML;
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const postID = urlParams.get("postId");
+            
+            const updatePost ={
+              title: postTitle,
+              body: postContent,
+              media: postImg
+            }
+            
+            const request = {
+              method: "PUT",
+              headers: headers,
+              body: JSON.stringify(updatePost)
+          }
+          
+        
+          fetch('https://nf-api.onrender.com/api/v1/social/posts/' + postID, request)
+          .then(response => response.json())
+          .then(created => {
+
+            
+          })
             
           }
         });
         
+        postConatiner.classList.add('w-50');
+        postConatiner.classList.add('mx-auto');
         
         postImg.src = post.media
+        postImg.id = "postImg"
         postImg.classList.add('card-img-top')
         postImg.classList.add('w-50')
         postImg.classList.add('mx-auto')
@@ -73,10 +104,12 @@ function getPost(){
         postBody.classList.add('card-body')
 
         postTittle.innerHTML = post.title 
+        postTittle.id = "postTitle";
         postTittle.classList.add('card-title')
         postTittle.classList.add('text-center')
 
         postContent.innerHTML = post.body
+        postContent.id = "postContent"
         postContent.classList.add('card-text')
         postContent.classList.add('text-center')
 
@@ -127,7 +160,7 @@ function deletePost(){
   const urlParams = new URLSearchParams(queryString);
   const postID = urlParams.get("postId");
   const deleteUrl = "https://nf-api.onrender.com/api/v1/social/posts/" + postID
-  
+
   fetch(deleteUrl, {method: "DELETE",headers: headers})
   .then(response => response.json())
   .then(deleted => {
